@@ -32,7 +32,7 @@ function App() {
       setCartItems(current => current.filter(item => item !== ShopItems[e.target.closest(".shop-item").id-1]));
       setItemCount(itemCount-1);
       ShopItems[e.target.closest(".shop-item").id-1].inCart = false; 
-      ShopItems[e.target.closest(".shop-item").id-1].val--; 
+      ShopItems[e.target.closest(".shop-item").id-1].val = 0; 
   }
 
   return (

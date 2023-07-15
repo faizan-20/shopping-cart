@@ -3,10 +3,10 @@ import ShopItems from "./ShopItems";
 const Cart = ({ cartItems, setCartItems, setItemCount, itemCount }) => {
 
     const removeFromCart = (e) => {
-        setCartItems(current => current.filter(item => item !== ShopItems[e.target.closest(".shop-item").id - 1]));
+        setCartItems(current => current.filter(item => item.id !== parseInt(e.target.closest(".shop-item").id)));
         setItemCount(itemCount - 1);
         ShopItems[e.target.closest(".shop-item").id - 1].inCart = false;
-        ShopItems[e.target.closest(".shop-item").id - 1].val--;
+        ShopItems[e.target.closest(".shop-item").id - 1].val = 0;
     }
 
     const increaseItem = (e) => {
@@ -23,23 +23,15 @@ const Cart = ({ cartItems, setCartItems, setItemCount, itemCount }) => {
     const decreaseItem = (e) => {
         setCartItems(current => current.map(item => {
             if (item.id === parseInt(e.target.closest(".shop-item").id)) {
-                if (item.val !== 1)
+                if (item.val > 1){
                     return { ...item, val: item.val - 1 }
+                }else {
+                    return {...item, val: 1};
+                }
             }
             return item;
         }))
         ShopItems[e.target.closest(".shop-item").id - 1].val--;
-    }
-
-    const setVal = (e) => {
-        setCartItems(current => current.map(item => {
-            if (item.id === parseInt(e.target.closest(".shop-item").id)) {
-                return { ...item, val: e.target.value }
-            } else {
-                return item;
-            }
-        }))
-        ShopItems[e.target.closest(".shop-item").id - 1].val = e.target.value;
     }
 
     return (
@@ -57,7 +49,7 @@ const Cart = ({ cartItems, setCartItems, setItemCount, itemCount }) => {
                                         className="value-button w-6 border-2 rounded-l-sm"
                                         id="decrease" value="Decrease Value" onClick={decreaseItem}
                                     >-</div>
-                                    <input type="number" id="number" onChange={setVal} value={item.val} className="w-6 text-black" readOnly/>
+                                    <input type="number" id="number"  value={item.val} className="w-6 text-black" readOnly/>
                                     <div
                                         className="value-button w-6 border-2 rounded-r-sm"
                                         id="increase" value="Increase Value" onClick={increaseItem}
