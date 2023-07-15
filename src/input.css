@@ -13,6 +13,51 @@
 body {
     background-color: black;
 }
+
+.text {
+  width: 30rem;
+}
+
+#item-img, #iteminfo{
+  border-color: rgba(245, 245, 245, 0.188);
+}
+
+.shop-item-cart {
+  width: 40rem;
+}
+
+.value-button {
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #5f5f5f;
+  background: #6f6f6f;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: black;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+input#number {
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
