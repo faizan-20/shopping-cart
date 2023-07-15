@@ -48,9 +48,9 @@ function App() {
     <div className="App">
       <Nav itemCount={itemCount}/>
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/shop" element={<Shop handleCart={handleCart}/>}/>
-        <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} setItemCount={setItemCount} itemCount={itemCount} totalPrice={totalPrice} />}></Route>
+        <Route path="/shopping-cart" element={<Home/>}/>
+        <Route path="/shopping-cart/shop" element={<Shop handleCart={handleCart}/>}/>
+        <Route path="/shopping-cart/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} setItemCount={setItemCount} itemCount={itemCount} totalPrice={totalPrice} />}></Route>
       </Routes>
     </div>
   );
