@@ -18,6 +18,29 @@ body {
   width: 30rem;
 }
 
+#cart-details{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 20rem;
+  max-width: 22rem;
+  background-color: #55555543;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+#checkout-btn {
+  background-color: rgba(145, 255, 145, 0.825);
+  border-color: rgba(64, 254, 64, 0.455);;
+  padding: 3px 8px;
+  transition: 200ms;
+}
+
+#checkout-btn:hover {
+  background-color: rgba(64, 254, 64, 0.626);
+  border-color: rgba(64, 254, 64, 0.614);;
+}
+
 #item-img, #iteminfo{
   border-color: rgba(245, 245, 245, 0.188);
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./input.css"
 import Home from "./components/Home";
@@ -11,6 +11,7 @@ function App() {
 
   const [cartItems, setCartItems] = useState([]);
   const [itemCount, setItemCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleCart = (e) => {
       if (!cartItems.includes(ShopItems[e.target.closest(".shop-item").id-1])){
@@ -35,13 +36,21 @@ function App() {
       ShopItems[e.target.closest(".shop-item").id-1].val = 0; 
   }
 
+  useEffect(() => {
+    let price = 0;
+    for (let i = 0; i < cartItems.length; i++){
+      price += cartItems[i].price * cartItems[i].val;
+    }
+    setTotalPrice(Math.round(price * 100)/100);
+  }, [cartItems, totalPrice]);
+
   return (
     <div className="App">
       <Nav itemCount={itemCount}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/shop" element={<Shop handleCart={handleCart}/>}/>
-        <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} setItemCount={setItemCount} itemCount={itemCount} />}></Route>
+        <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} setItemCount={setItemCount} itemCount={itemCount} totalPrice={totalPrice} />}></Route>
       </Routes>
     </div>
   );

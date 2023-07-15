@@ -8,7 +8,7 @@ const Shop = ({handleCart}) => {
             <div id="item-display" className="grid grid-cols-4 gap-4 mt-24">
                 {ShopItems.map((item) => {
                     return (
-                        <div key={item.id} id={item.id} className="shop-item flex flex-col items-center">
+                        <div key={item.id} id={item.id} className="shop-item flex flex-col items-center transition duration-200">
                             <div id="item-img" className=" h-64 w-64 border-2 rounded-md rounded-b-none">
                                 <img src={item.img} alt={item.info} className="text-center rounded-md w-64 h-64" />
                             </div>
