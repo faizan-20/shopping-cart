@@ -18,6 +18,10 @@ body {
   width: 30rem;
 }
 
+img {
+  object-fit: cover;
+}
+
 #cart-details{
   display: flex;
   flex-direction: column;
