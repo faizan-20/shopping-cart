@@ -5,7 +5,7 @@ const Shop = ({handleCart}) => {
     return (
         <div id="shop" className="text-slate-300 flex flex-col items-center">
             <div id="head" className="mt-9 font-bold text-4xl">Shop</div>
-            <div id="item-display" className="grid grid-cols-4 gap-4 mt-24">
+            <div id="item-display" className=" mt-24">
                 {ShopItems.map((item) => {
                     return (
                         <div key={item.id} id={item.id} className="shop-item flex flex-col items-center transition duration-200">
